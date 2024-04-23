@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recar</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/carstyle.css' %}">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Recar</a>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          
+            <li class="nav-item ">
+              <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="#">Contact</a>
+
+              <li class="nav-item ">
+                <a class="nav-link" href="/sellcar">Sell Your Car</a>
+              </li>
+            </li>
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
+            <a class="nav-link" href="/logout">Log out </a>
+          </li>
+     
+    <li id="usrn" ><svg class="usricon" xmlns="http://www.w3.org/2000/svg" height="22" width="19" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg> {{user.first_name}}</li>
+         
+     {% else %}     
+    
+     <li class="nav-item ">
+      <a class="nav-link" href="/login">Log in </a>
+    </li>
+    
+    <li class="nav-item ">
+      <a class="nav-link" href="/create">sign up</a>
+    </li>
+    
+    {% endif%}
+          </ul>
+            
+          <form class="form-inline my-2 my-lg-0" action="/search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="s">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+      
+     
+      <p id="at2" class="at">Filter by :</p><a class="at" href="/recar"><button class="btns">All</button></a>
+      {% for j in category %}
+
+     <a class="at" href="/cata/{{j.id}}"><button class="btns">{{j.name}}</button></a>
+
+      {% endfor %}
+     
+
+
+    {% for i in cars_list %}
+    <a class="xyz" href="/viewcar/{{i.id}}">
+    <div class="main">
+    
+    <div part="part1">
+    <h1>{{i.name}}</h1>
+    <img class="img1" src="{{i.image.url}}" alt="">
+    </div>
+    <div class="part2">
+    <h2>Description</h2>
+    <div class="des">
+    <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Company-{{i.company}}</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg> Year-{{i.year}}</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Kilometers run-{{i.km}}</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Transmission-{{i.transmission}}</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Ownership-{{i.ownership}}</p>
+    </div>
+    </div>
+    
+    <div class="part3">
+    <h3>{{i.price}}</h3>
+    <div><button class="btn1" >Make offer</button></div>
+    <div><button class="btn2" >Chat with seller</button></div>
+    </div>
+
+
+
+    </div> 
+   
+    </a>
+
+    {% if i.us.id == user.id %}
+    <a href="/updatecars/{{i.id}}" class="btn btn-primary">Edit</a>
+    <a href="/deletecars/{{i.id}}" class="btn btn-danger">Delete</a>
+    {% endif  %}
+
+    {% endfor %}
+
+    
+
+</body>
+</html>

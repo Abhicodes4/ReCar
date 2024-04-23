@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="new"></div>
+    <script>
+            fetch('http://127.0.0.1:8000/carsapi/?format=json')
+              .then(response => response.json())
+              .then(data => {
+              
+                 for(var i of data){        
+                  document.getElementById('new').innerHTML+=`
+                  <h1>${i.name}</h1>
+                  <img class="img1" src="${i.image}" alt="">
+                  <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Company-${i.company}</p>
+                  <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg> Year-${i.year}</p>
+                  <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Kilometers run-${i.km}</p>
+                  <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Transmission-${i.transmission}}</p>
+                  <p><svg xmlns="http://www.w3.org/2000/svg" height="8" width="8" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>  Ownership-${i.ownership}</p>
+                  <h3>${i.price}</h3>
+                  
+                  `
+        
+                         
+                    
+                   
+                 }
+                 
+                 
+        
+              
+        })
+    </script>
+</body>
+</html>

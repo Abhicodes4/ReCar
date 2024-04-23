@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="a"></h1>
+    <img src="" id="b"> 
+    <p id="c"></p>
+    <h3 id="d"></h3>
+  
+    
+
+    <script>
+        fetch('https://fakestoreapi.com/products/{{id}}')
+        .then(res=>res.json())
+        .then(json=>{
+
+            console.log(json)
+
+           document.getElementById('a').innerHTML=json.title
+           document.getElementById('b').src=json.image
+           document.getElementById('c').innerHTML=json.description
+           document.getElementById('d').innerHTML=json.price
+                
+                
+                
+            
+            })
+
+    </script>    
+
+    
+</body>
+</html>

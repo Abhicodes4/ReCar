@@ -1,0 +1,108 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.main{
+    background-color:#ebf1ff;
+    height: 390px;
+    margin-top: 50px;
+    display: flex;
+    padding: 20px;
+    justify-content: space-evenly;
+    margin-left: -40px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+
+
+.part2{
+    padding-top: 50px;
+}
+
+.img1{
+    height: 250px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+h3{
+    font-size: 60px ;
+    margin-bottom: 30px;
+}
+
+h2{
+   position: relative;
+   top: 10px;
+}
+
+.btn1{
+
+    height: 50px;
+    width: 300px;
+    margin-top: 30x;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+
+.btn2{
+    height: 50px;
+    width: 300px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+
+.part3{
+    margin-top: 50px;
+    
+}
+
+.des{
+    margin-top: 30px;
+}
+
+.xyz{
+    
+    color: black;
+}
+
+.xyz:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.at{
+    color: black;
+    font-size: large;
+    margin-left: 20px;
+    position: relative;
+    top: 15px;
+    display: inline-block;
+    text-decoration: underline;
+    
+}
+
+#at2{
+    text-decoration: none;
+}
+
+.btns{
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#usrn{
+    padding-top: 7px;
+    padding-left: 645px;
+    font-weight: bold;
+    font-size: large;
+    color: blueviolet;
+}
+
+.usricon{
+    position: relative;
+    top:4px;
+}
